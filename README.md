@@ -4,7 +4,7 @@ This project implements a complete data science pipeline using the Titanic datas
 
 ## 📁 Project Structure
 
-```python
+```json
 ├── cleaned_data.csv         # Cleaned dataset
 ├── notebook.ipynb           # Full pipeline in Jupyter Notebook
 ├── titanic_model.joblib     # Trained RandomForestClassifier model
@@ -12,49 +12,97 @@ This project implements a complete data science pipeline using the Titanic datas
 ├── README.md                # Project documentation
 ```
 
+<br /><hr /><br />
+
 ## 📊 Features
 
-* **Data Cleaning:** Handles missing values, encodes categorical variables, removes duplicates.
-* **EDA:** Visualizes survival distribution, age distribution, and feature correlation heatmap.
-* **ML Model:** Trains a Random Forest Classifier and evaluates accuracy and classification report.
-* **UI:** Gradio-based web app for predicting survival chances based on passenger details.
+### 🧹 Task 1: Data Cleaning
+- Loaded the Titanic dataset from:
+  `https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv`
+- Handled missing values:
+  - `Age`: filled with median
+  - `Embarked`: filled with mode
+- Dropped the following columns:
+  - `Cabin`: ~77% missing data
+  - `Ticket`: inconsistent, high-cardinality
+  - `Name`: raw text, no immediate value unless parsed (e.g. title extraction)
+  - `PassengerId`: unique row ID, not useful for prediction
+- Encoded categorical columns:
+  - `Sex`: male → 0, female → 1
+  - `Embarked`: S → 0, C → 1, Q → 2
+- Removed exact duplicate rows based on all columns
+- Saved final cleaned dataset as `cleaned_data.csv`
+
+<br />
+
+### 📈 Task 2: Exploratory Data Analysis (EDA)
+- Generated summary statistics using `df.describe()`
+- Created 3 visualizations:
+  1. **Survival Distribution** using a countplot
+  2. **Age Distribution** using histogram with KDE
+  3. **Correlation Heatmap** for numeric relationships
+
+<br />
+
+### 🤖 Task 3: Machine Learning Model
+- Split data into train/test using `train_test_split`
+- Trained a `RandomForestClassifier`
+- Evaluated using:
+  - `accuracy_score`
+  - `classification_report`
+- Saved the trained model as `titanic_model.joblib`
+
+<br />
+
+### 🌐 Task 4: UI with Gradio
+- Implemented interactive Gradio app for prediction
+- Inputs:
+  - Passenger class, sex, age, sibsp, parch, fare, embarked
+- Outputs:
+  - Survival prediction (`Survived` or `Did Not Survive`)
+
+<br /><hr /><br />
 
 ## 🚀 How to Run the Project
 
 ### 1. Clone the repository
-
 ```console
 git clone https://github.com/elyse502/Elysee_NIYIBIZI-ml-assignment.git
 cd Elysee_NIYIBIZI-ml-assignment
 ```
 
-### 2. Install dependencies
+### 2. Create a virtual environment (Prevents System Pollution)
+```console
+python -m venv ml-env
+source ml-env/bin/activate  # or venv\Scripts\activate on Windows
+```
 
+### 3. Install dependencies
 ```console
 pip install -r requirements.txt
 ```
 
-### 3. Launch the notebook
-
+### 4. Launch the notebook
 ```console
 jupyter notebook notebook.ipynb
 ```
 
-### 4. Run the Gradio UI
-
+### 5. Run the Gradio UI
 Once the model is trained and saved, run the last cell in the notebook or:
-
 ```console
-python gradio_ui.py  # If split into script form
+python gradio_ui.py  # If extracted to a script
 ```
 
-## ✅ Requirements
+<br /><hr /><br />
 
-* Python 3.7+
-* Jupyter Notebook
-* Pandas, Seaborn, Matplotlib
-* Scikit-learn, Joblib
-* Gradio
+## ✅ Requirements
+- Python 3.7+
+- Jupyter Notebook
+- Pandas, Seaborn, Matplotlib
+- Scikit-learn, Joblib
+- Gradio
+
+<br /><hr /><br />
 
 ## 🙌 Author
 
@@ -74,6 +122,8 @@ This project is part of the AI/ML & Big Data assignment at the [University of Ki
 <br />
 Made with ❤️ by <b>Elysée NIYIBIZI</b>
 </div>
+
+
 
 
 
