@@ -74,7 +74,7 @@ cd Elysee_NIYIBIZI-ml-assignment
 ### 2. Create a virtual environment (Prevents System Pollution)
 ```console
 python -m venv ml-env
-source ml-env/bin/activate  # or venv\Scripts\activate on Windows
+source ml-env/bin/activate  # or ml-env\Scripts\activate on Windows
 ```
 
 ### 3. Install dependencies
