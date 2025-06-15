@@ -67,8 +67,8 @@ This project implements a complete data science pipeline using the Titanic datas
 
 ### 1. Clone the repository
 ```console
-git clone https://github.com/elyse502/Elysee_NIYIBIZI-ml-assignment.git
-cd Elysee_NIYIBIZI-ml-assignment
+git clone https://github.com/elyse502/Elysee-ml-assignment.git
+cd Elysee-ml-assignment
 ```
 
 ### 2. Create a virtual environment (Prevents System Pollution)
